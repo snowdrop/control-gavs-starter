@@ -12,6 +12,4 @@ org.springframework.boot:spring-boot-starter-web:1.5.13.RELEASE
 org.springframework.boot:spring-boot-starter-tomcat:1.5.13.RELEASE
 org.springframework.boot:spring-boot-starter-undertow:1.5.13.RELEASE
 
-org.springframework.boot:spring-boot-starter-data-mongodb:1.5.13.RELEASE
-
 # TO BE EXTENDED TO ADD Jaeger, ...
