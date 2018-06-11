@@ -1,8 +1,8 @@
 org.springframework.boot:spring-boot:1.5.13.RELEASE
 org.springframework.boot:spring-boot-actuator:1.5.13.RELEASE
 org.springframework.boot:spring-boot-autoconfigure:1.5.13.RELEASE
+
 org.springframework.boot:spring-boot-starter:1.5.13.RELEASE
-org.springframework.boot:spring-boot-actuator:1.5.13.RELEASE
 org.springframework.boot:spring-boot-starter-data-jpa:1.5.13.RELEASE
 org.springframework.boot:spring-boot-starter-data-rest:1.5.13.RELEASE
 org.springframework.boot:spring-boot-starter-jdbc:1.5.13.RELEASE
