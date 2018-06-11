@@ -24,7 +24,7 @@ public class CheckStarter {
 
         StringBuilder bw = new StringBuilder();
         for (String line : lines) {
-            if (!line.isEmpty()) {
+            if (!line.isEmpty() && !line.startsWith("#")) {
                 bw.append(SEPARATOR_LINE).append(NEW_LINE);
                 bw.append("Spring Boot Starter : " + line).append(NEW_LINE);
                 bw.append(SEPARATOR_LINE).append(NEW_LINE);
