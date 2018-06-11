@@ -13,8 +13,8 @@
   [INFO] ------------------------------------------------------------------------
   ```
   
-  and control that this file has been generated locally under the following folder `./generated/gavs.txt`
-  and if it includes GAVs to be excluded
+  and control that this file has been generated locally `./generated/gavs.txt`
+  and that it includes GAVs to be excluded or not
   
   e.g
   
