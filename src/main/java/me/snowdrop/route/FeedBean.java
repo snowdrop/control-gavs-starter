@@ -3,8 +3,11 @@ package me.snowdrop.route;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 import org.apache.camel.Body;
+import org.apache.camel.Headers;
 
-public class FilterBean {
+import java.util.Map;
+
+public class FeedBean {
 
     static public String newLine() {
         return System.getProperty("line.separator");
@@ -19,7 +22,7 @@ public class FilterBean {
         return firstEntry.getTitle().contains("spring-");
     }
 
-    public String outputResult(@Body SyndFeed feed) {
+    public String outputResult(@Body SyndFeed feed, @Headers Map<Object, Object> headers) {
         StringBuffer sbf = new StringBuffer();
         SyndEntry entry = (SyndEntry) feed.getEntries().get(0);
         sbf.append(lineSeparator()).append(newLine());
@@ -28,6 +31,9 @@ public class FilterBean {
         sbf.append("Date : " + entry.getPublishedDate()).append(newLine());
         sbf.append("Description : " + entry.getDescription()).append(newLine());
         sbf.append(lineSeparator()).append(newLine());
+
+        headers.put("CamelfileName",entry.getTitle());
+
         return sbf.toString();
     }
 }
