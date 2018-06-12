@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RssToCVEFile extends RouteBuilder {
 
-    String rssURL = "https://pivotal.io/security/rss?splitEntries=true";
+    String rssURL = "https://pivotal.io/security/rss?splitEntries=true&delay=1h";
 
     @Override
     public void configure() throws Exception {
