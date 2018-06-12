@@ -59,6 +59,12 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
+                <configuration>
+                    <arguments>
+                        <argument>examples/starters-list.txt</argument>
+                        <argument>examples/keywords-to-verify.txt</argument>
+                    </arguments>
+                </configuration>
             </plugin>
         </plugins>
     </build>

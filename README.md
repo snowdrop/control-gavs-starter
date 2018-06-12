@@ -42,4 +42,10 @@
   org.springframework:spring-aop:4.3.17.RELEASE
   ...
   ```
+  
+- You can also pass as parameters files containing the list of the GAVS to resolve the dependencies and the keywords to be matched
+
+  ```bash
+  mvn exec:java -Dexec.args="my-starters.txt my-keywords.txt"
+  ```
 

@@ -18,18 +18,28 @@ public class CheckStarter {
     static List<String> keywords;
 
     public static void main(String[] args) throws IOException, URISyntaxException {
-        String STARTERS_FILE = "/starters-list.txt";
-        String KEYWORDS_FILE = "/keywords-to-verify.txt";
+
+        // command line parameter
+        if(args.length != 2) {
+            System.err.println("Invalid command line, exactly two arguments required");
+            System.exit(1);
+        }
 
         String SEPARATOR_LINE = new String(new char[100]).replace("\0", "=");
         String NEW_LINE = System.getProperty("line.separator");
 
+        // Read files containing starters or boot GAVS and keywords to be matched
+        File startersFile = new File(args[0]);
+        File keywordsFile = new File(args[1]);
+
+        // Generate Output Gavs file
         Files.createDirectories(Paths.get("./generated"));
-        FileWriter fw = new FileWriter("./generated/gavs.txt",true);
+        FileWriter fw = new FileWriter("./generated/gavs.txt");
 
-        gavs = Files.readAllLines(Paths.get(CheckStarter.class.getResource(STARTERS_FILE).toURI()), StandardCharsets.UTF_8);
-        excludes = Files.readAllLines(Paths.get(CheckStarter.class.getResource(KEYWORDS_FILE).toURI()), StandardCharsets.UTF_8);
+        gavs = Files.readAllLines(Paths.get(startersFile.toURI()), StandardCharsets.UTF_8);
+        excludes = Files.readAllLines(Paths.get(keywordsFile.toURI()), StandardCharsets.UTF_8);
 
+        // Split keywords to be checked
         keywords = Arrays.asList(excludes.get(0).split(","));
         System.out.println("Keywords : " + keywords);
 

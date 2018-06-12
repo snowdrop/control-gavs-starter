@@ -1,0 +1,1 @@
+eclipselink,elasticsearch,mongodb,redis,jersey,jetty,atomikos,bitronix
