@@ -35,7 +35,7 @@ If the maven goal succeeds, then you will see the following message within yoour
   [INFO] ------------------------------------------------------------------------
   ```
   
-you can control that this file `./generated/gavs.txt` has been generated locally
+You can control that this file `./generated/gavs.txt` has been generated locally
 and that it includes GAVs.
   
   
