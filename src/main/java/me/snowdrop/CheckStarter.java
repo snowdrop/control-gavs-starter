@@ -45,7 +45,7 @@ public class CheckStarter {
 
                     // Check if the GAV contains a non supported framework
                     if (includeKeyword(gavOfTheStarter)) {
-                        bw.append("TO_BE_EXCLUDED : " + gavOfTheStarter).append(NEW_LINE);
+                        bw.append("MATCHING : " + gavOfTheStarter).append(NEW_LINE);
                     } else {
                         bw.append(gavOfTheStarter).append(NEW_LINE);
                     }
