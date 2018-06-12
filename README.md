@@ -1,9 +1,14 @@
 # Instructions to check the starters
 
-- Before to run the `mvn exec:java` command, verify the content of the file `src/main/resources/starters-list.txt` to check if it contains the Spring Boot starters to be scanned
-  for a specific version like also the non supported frameworks such as: EclipseLink, ElasticSearch, MongoDB within the file `src/main/resources/keywords-to-verify.txt`
+The goal of this project is to resolve the transitive dependencies of a Maven coordinate (gav) using as input, a file containing a list of Maven coordinates to check `G:A:V`.
+All the Coordinates resolved will be next saved into an output file `generated/gavs.txt` and if the coordinate matches one of the keywords, the prefix `MATCHING : ` will be added.
+The list of the keywoards is passed as parameter too and is defined as a comma separated values list. 
 
-- Next, run this command `mvn exec:java` 
+
+Before to run the `mvn exec:java` command, verify the content of the file `examples/starters-list.txt` to check if it contains the Spring Boot starters to be scanned
+for a specific version like also the non supported frameworks such as: EclipseLink, ElasticSearch, MongoDB within the file `examples/keywords-to-verify.txt`
+
+Next, run this command `mvn exec:java` 
 
   ```
   [INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ check-starter ---
@@ -43,7 +48,7 @@
   ...
   ```
   
-- You can also pass as parameters files containing the list of the GAVS to resolve the dependencies and the keywords to be matched
+You can also pass as parameters files containing the list of the GAVS to resolve the dependencies and the keywords to be matched
 
   ```bash
   mvn exec:java -Dexec.args="my-starters.txt my-keywords.txt"
