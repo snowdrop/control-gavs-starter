@@ -2,7 +2,7 @@
 
 The goal of this project is to resolve the transitive dependencies of a Maven coordinate (gav) using as input, a file containing a list of Maven coordinates to check `G:A:V`.
 All the Coordinates resolved will be next saved into an output file `generated/gavs.txt` and if the coordinate matches one of the keywords, the prefix `MATCHING : ` will be added.
-The list of the keywords is passed as an argument to the java application too and is defined as a comma separated values list. 
+The list of the keywords is passed as an argument to the java application and is defined as a comma separated values list. 
 
 Create first your `my-starters-list.txt` file containing the Maven coordinates of the Spring Boot starters or Boot projects to resolve using the following convention 
 
@@ -10,7 +10,6 @@ Create first your `my-starters-list.txt` file containing the Maven coordinates o
  groupId:artifactId:version
  groupId:artifactId:version
  ```  
-   file  frameworks such as: EclipseLink, ElasticSearch, MongoDB within the file `examples/keywords-to-verify.txt`
 
 Next, define your `my-keywords.txt` file with the keywords to be controlled
 
