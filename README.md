@@ -17,6 +17,8 @@ Next, define your `my-keywords.txt` file with the keywords to be controlled
   key1,key2,key3,key4,....,keyN
   ```
 
+**REMARK** : An example of the starters and keywords files are available under the `examples` directory.
+
 You can now execute this maven command and pass as arguments the files
 
 ```bash
