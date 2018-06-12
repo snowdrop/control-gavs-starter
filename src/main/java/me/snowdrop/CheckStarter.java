@@ -75,7 +75,11 @@ public class CheckStarter {
     }
 
     static boolean includeKeyword(String gav) {
-        return keywords.stream().anyMatch(str -> gav.contains(str.trim()));
+        return keywords.stream()
+                .map(String::trim)
+                .filter(s -> gav.contains(s))
+                .findAny()
+                .isPresent();
     }
 
 }
