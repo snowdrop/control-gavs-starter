@@ -51,13 +51,13 @@ public class CheckStarter {
                 bw.append(SEPARATOR_LINE).append(NEW_LINE);
 
                 for (MavenCoordinate coord : collectGAVs(gav)) {
-                    String gavOfTheStarter = coord.getGroupId() + ':' + coord.getArtifactId() + ":" + coord.getVersion();
+                    String depGav = coord.getGroupId() + ':' + coord.getArtifactId() + ":" + coord.getVersion();
 
                     // Check if the GAV contains a non supported framework
-                    if (includeKeyword(gavOfTheStarter)) {
-                        bw.append("MATCHING : " + gavOfTheStarter).append(NEW_LINE);
+                    if (includeKeyword(depGav)) {
+                        bw.append("MATCHING : " + gav + "!" + depGav).append(NEW_LINE);
                     } else {
-                        bw.append(gavOfTheStarter).append(NEW_LINE);
+                        bw.append(gav + "!" + depGav).append(NEW_LINE);
                     }
                 }
                 bw.append(NEW_LINE);
