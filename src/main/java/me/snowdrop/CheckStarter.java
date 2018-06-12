@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class CheckStarter {
 
@@ -17,7 +18,7 @@ public class CheckStarter {
     static List<String> gavs;
     static List<String> keywords;
 
-    public static void main(String[] args) throws IOException, URISyntaxException {
+    public static void main(String[] args) throws IOException {
 
         // command line parameter
         if(args.length != 2) {
@@ -54,8 +55,9 @@ public class CheckStarter {
                     String depGav = coord.getGroupId() + ':' + coord.getArtifactId() + ":" + coord.getVersion();
 
                     // Check if the GAV contains a non supported framework
-                    if (includeKeyword(depGav)) {
-                        bw.append("MATCHING : " + gav + "!" + depGav).append(NEW_LINE);
+                    Optional<String> match = includeKeyword(depGav);
+                    if (match.isPresent()) {
+                        bw.append("MATCHING : [" + match.get() + " ] : " + gav + "!" + depGav).append(NEW_LINE);
                     } else {
                         bw.append(gav + "!" + depGav).append(NEW_LINE);
                     }
@@ -74,12 +76,11 @@ public class CheckStarter {
                 .asList(MavenCoordinate.class);
     }
 
-    static boolean includeKeyword(String gav) {
+    static Optional<String> includeKeyword(String gav) {
         return keywords.stream()
                 .map(String::trim)
                 .filter(s -> gav.contains(s))
-                .findAny()
-                .isPresent();
+                .findAny();
     }
 
 }
