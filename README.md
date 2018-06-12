@@ -43,24 +43,11 @@ and that it includes GAVs.
   ====================================================================================================
   Spring Artifact : org.springframework.boot:spring-boot-starter-data-mongodb:1.5.13.RELEASE
   ====================================================================================================
-  MATCHING : org.springframework.boot:spring-boot-starter-data-mongodb:1.5.13.RELEASE
+  MATCHING [mongodb ] --> org.springframework.boot:spring-boot-starter-data-mongodb:1.5.13.RELEASE!org.springframework.boot:spring-boot-starter-data-mongodb:1.5.13.RELEASE
   org.springframework.boot:spring-boot-starter:1.5.13.RELEASE
   org.springframework.boot:spring-boot:1.5.13.RELEASE
   org.springframework.boot:spring-boot-autoconfigure:1.5.13.RELEASE
   org.springframework.boot:spring-boot-starter-logging:1.5.13.RELEASE
-  ch.qos.logback:logback-classic:1.1.11
-  ch.qos.logback:logback-core:1.1.11
-  org.slf4j:jul-to-slf4j:1.7.25
-  org.slf4j:log4j-over-slf4j:1.7.25
-  org.springframework:spring-core:4.3.17.RELEASE
-  org.yaml:snakeyaml:1.17
-  MATCHING : org.mongodb:mongodb-driver:3.4.3
-  MATCHING : org.mongodb:mongodb-driver-core:3.4.3
-  MATCHING : org.mongodb:bson:3.4.3
-  MATCHING : org.springframework.data:spring-data-mongodb:1.10.12.RELEASE
-  org.springframework:spring-tx:4.3.17.RELEASE
-  org.springframework:spring-context:4.3.17.RELEASE
-  org.springframework:spring-aop:4.3.17.RELEASE
   ...
   ````
 

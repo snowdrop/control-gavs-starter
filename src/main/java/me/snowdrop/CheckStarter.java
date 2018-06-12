@@ -3,8 +3,9 @@ package me.snowdrop;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.jboss.shrinkwrap.resolver.api.maven.coordinate.MavenCoordinate;
 
-import java.io.*;
-import java.net.URISyntaxException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -14,14 +15,14 @@ import java.util.Optional;
 
 public class CheckStarter {
 
-    static List<String> excludes;
-    static List<String> gavs;
-    static List<String> keywords;
+    private static List<String> excludes;
+    private static List<String> gavs;
+    private static List<String> keywords;
 
     public static void main(String[] args) throws IOException {
 
         // command line parameter
-        if(args.length != 2) {
+        if (args.length != 2) {
             System.err.println("Invalid command line, exactly two arguments required");
             System.exit(1);
         }
@@ -48,7 +49,7 @@ public class CheckStarter {
         for (String gav : gavs) {
             if (!gav.isEmpty() && !gav.startsWith("#")) {
                 bw.append(SEPARATOR_LINE).append(NEW_LINE);
-                bw.append("Spring Artifact : " + gav).append(NEW_LINE);
+                bw.append("Spring Artifact : ").append(gav).append(NEW_LINE);
                 bw.append(SEPARATOR_LINE).append(NEW_LINE);
 
                 for (MavenCoordinate coord : collectGAVs(gav)) {
@@ -57,7 +58,7 @@ public class CheckStarter {
                     // Check if the GAV contains a non supported framework
                     Optional<String> match = includeKeyword(depGav);
                     if (match.isPresent()) {
-                        bw.append("MATCHING : [" + match.get() + " ] : " + gav + "!" + depGav).append(NEW_LINE);
+                        bw.append("MATCHING [" + match.get() + "] --> " + gav + "!" + depGav).append(NEW_LINE);
                     } else {
                         bw.append(gav + "!" + depGav).append(NEW_LINE);
                     }
@@ -69,17 +70,17 @@ public class CheckStarter {
         fw.close();
     }
 
-    static List<MavenCoordinate> collectGAVs(String gav) {
+    private static List<MavenCoordinate> collectGAVs(String gav) {
         return Maven.resolver()
                 .resolve(gav)
                 .withTransitivity()
                 .asList(MavenCoordinate.class);
     }
 
-    static Optional<String> includeKeyword(String gav) {
+    private static Optional<String> includeKeyword(String gav) {
         return keywords.stream()
                 .map(String::trim)
-                .filter(s -> gav.contains(s))
+                .filter(gav::contains)
                 .findAny();
     }
 

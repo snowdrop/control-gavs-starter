@@ -9,11 +9,11 @@ import java.util.Map;
 
 public class FeedBean {
 
-    static public String newLine() {
+    private static String newLine() {
         return System.getProperty("line.separator");
     }
 
-    static public String lineSeparator() {
+    private static String lineSeparator() {
         return new String(new char[50]).replace("\0", "=");
     }
 
@@ -23,7 +23,7 @@ public class FeedBean {
     }
 
     public String outputResult(@Body SyndFeed feed, @Headers Map<Object, Object> headers) {
-        StringBuffer sbf = new StringBuffer();
+        StringBuilder sbf = new StringBuilder();
         SyndEntry entry = (SyndEntry) feed.getEntries().get(0);
         sbf.append(lineSeparator()).append(newLine());
         sbf.append("CVE id : " + entry.getTitle()).append(newLine());
