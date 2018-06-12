@@ -10,10 +10,35 @@
 
     <properties>
         <shrinkwrap-resolver-maven>3.1.3</shrinkwrap-resolver-maven>
+        <camen-rss.version>2.21.1</camen-rss.version>
+        <spring-boot.version>1.5.13.RELEASE</spring-boot.version>
         <exec.mainClass>me.snowdrop.CheckStarter</exec.mainClass>
+
+        <!-- Plugins -->
+        <spring-boot-plugin.version>1.5.13.RELEASE</spring-boot-plugin.version>
+        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+
+        <!-- Apache Camel RSS Feeder -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-spring-boot-starter</artifactId>
+            <version>${camen-rss.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-rss-starter</artifactId>
+            <version>${camen-rss.version}</version>
+        </dependency>
+
+        <!-- Maven Coordinates Resolver -->
         <dependency>
             <groupId>org.jboss.shrinkwrap.resolver</groupId>
             <artifactId>shrinkwrap-resolver-api</artifactId>
@@ -57,8 +82,14 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot-plugin.version}</version>
+            </plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
+                <version>${exec-maven-plugin.version}</version>
                 <configuration>
                     <arguments>
                         <argument>examples/starters-list.txt</argument>
