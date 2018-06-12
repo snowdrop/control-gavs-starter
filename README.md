@@ -25,7 +25,7 @@ You can now execute this maven command and pass as arguments the files
   mvn exec:java -Dexec.args="my-starters.txt my-keywords.txt"
 ```
 
-If the maven goal succeeds, then you will see the ollofing message like the keywords processed
+If the maven goal succeeds, then you will see the following message within yoour terminal like the keywords processed
 
   ```
   [INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ check-starter ---
