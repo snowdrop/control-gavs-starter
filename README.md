@@ -14,7 +14,7 @@ Create first your `my-starters-list.txt` file containing the Maven coordinates o
 Next, define your `my-keywords.txt` file with the keywords to be controlled
 
   ```
-  key1,key2,key3,key4,....,keyn
+  key1,key2,key3,key4,....,keyN
   ```
 
 You can now execute this maven command and pass as arguments the files
