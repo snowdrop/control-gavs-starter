@@ -3,19 +3,14 @@ final text = url.text
 
 final File projectsFile = new File("generated/spring_projects.txt")
 
-final result =
-        text
-          .split( '\n' )
-          .findAll { it.contains( '!' ) }
-          .collect {
-            final index = it.indexOf('!')
-            return it.substring(index + 1)
-        }
-        .unique()
-        .sort()
-
-result.each {
-    if (it.contains('springframework')) {
-        projectsFile << ("${it}\n");
-    }
-}
+text
+  .split( '\n' )
+  .findAll { it.contains( '!' ) }
+  .collect {
+    final index = it.indexOf('!')
+    return it.substring(index + 1)
+  }
+  .unique()
+  .sort()
+  .findAll { it.contains('springframework') }
+  .each { projectsFile << ("${it}\n") }
