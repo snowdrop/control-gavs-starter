@@ -6,10 +6,10 @@ The list of the keywords is passed as an argument to the java application and is
 
 Create first your `my-starters-list.txt` file containing the Maven coordinates of the Spring Boot starters or Boot projects to resolve using the following convention 
 
- ```
- groupId:artifactId:version
- groupId:artifactId:version
- ```  
+  ```
+  groupId:artifactId:version
+  groupId:artifactId:version
+  ```  
 
 Next, define your `my-keywords.txt` file with the keywords to be controlled
 
@@ -21,9 +21,9 @@ Next, define your `my-keywords.txt` file with the keywords to be controlled
 
 You can now execute this maven command and pass as arguments the files
 
-```bash
+  ```bash
   mvn exec:java -Dexec.args="my-starters.txt my-keywords.txt"
-```
+  ```
 
 If the maven goal succeeds, then you will see the following message within yoour terminal like the keywords processed
 
@@ -49,5 +49,10 @@ and that it includes GAVs.
   org.springframework.boot:spring-boot-autoconfigure:1.5.13.RELEASE
   org.springframework.boot:spring-boot-starter-logging:1.5.13.RELEASE
   ...
-  ````
+  ```
 
+**REMARK** To sort and get unique list of GAVs from the file, then use the following groovy script and check the result under `generated/spring_projects.txt`  
+
+  ```
+  groovy spring_projects.groovy
+  ```
